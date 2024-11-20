@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MAVIDI_SMILE.ViewModels.AmigoViewModel>
+
+<h2>Lista de Amigos</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var amigo in Model)
+    {
+    <tr>
+        <td>@amigo.Nome</td>
+        <td>@amigo.Email</td>
+        <td>
+            <a href="/Amigos/Detalhes/@amigo.Id" class="btn btn-info">Detalhes</a>
+            <a href="/Amigos/Editar/@amigo.Id" class="btn btn-warning">Editar</a>
+            <a href="/Amigos/Deletar/@amigo.Id" class="btn btn-danger">Deletar</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
