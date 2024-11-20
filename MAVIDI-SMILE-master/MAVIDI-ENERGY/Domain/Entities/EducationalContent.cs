@@ -5,7 +5,7 @@ namespace MAVIDI_ENERGY.Domain.Entities
 {
     public class EducationalContent
     {
-        [Key] // Define como chave primária
+        [Key] 
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo Título é obrigatório.")]

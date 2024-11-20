@@ -11,6 +11,6 @@ namespace MAVIDI_ENERGY.Application.Interfaces
         void AdicionarUsuario(UserDTO userDto);
         void AtualizarUsuario(int id, UserDTO userDto);
         void RemoverUsuario(int id);
-        User? Authenticate(string email, string password); // Se for utilizado para autenticação
+        User? Authenticate(string email, string password); 
     }
 }

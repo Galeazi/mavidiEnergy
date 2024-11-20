@@ -14,33 +14,28 @@ namespace MAVIDI_ENERGY.Infrastructure.Repositories
         {
             _context = context;
         }
-
-        // Método para obter fornecedor pelo ID
+        
         public SolarProvider? ObterPorId(int id)
         {
             return _context.SolarProviders.FirstOrDefault(p => p.Id == id);
         }
-
-        // Método para obter todos os fornecedores
+        
         public IEnumerable<SolarProvider> ObterTodos()
         {
             return _context.SolarProviders.ToList();
         }
-
-        // Método para obter fornecedores por região
+        
         public IEnumerable<SolarProvider> ObterPorRegiao(string location)
         {
             return _context.SolarProviders.Where(p => p.Location.ToLower() == location.ToLower()).ToList();
         }
 
-        // Método para adicionar um novo fornecedor
         public void Adicionar(SolarProvider provider)
         {
             _context.SolarProviders.Add(provider);
             _context.SaveChanges();
         }
-
-        // Método para atualizar um fornecedor existente
+        
         public void Atualizar(int id, SolarProvider providerAtualizado)
         {
             var providerExistente = _context.SolarProviders.FirstOrDefault(p => p.Id == id);
@@ -55,8 +50,7 @@ namespace MAVIDI_ENERGY.Infrastructure.Repositories
                 _context.SaveChanges();
             }
         }
-
-        // Método para remover um fornecedor
+        
         public void Remover(int id)
         {
             var provider = _context.SolarProviders.FirstOrDefault(p => p.Id == id);

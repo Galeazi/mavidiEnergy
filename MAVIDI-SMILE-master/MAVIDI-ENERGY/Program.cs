@@ -9,30 +9,25 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuração da string de conexão
 var connectionString = builder.Configuration.GetConnectionString("OracleConnection");
 if (string.IsNullOrEmpty(connectionString))
 {
     throw new InvalidOperationException("Connection string for Oracle Database is not configured.");
 }
 
-// Configuração do DbContext para usar Oracle
 builder.Services.AddDbContext<AppData>(options =>
 {
     options.UseOracle(connectionString);
 });
 
-// Registro de repositórios
 builder.Services.AddScoped<IEnergyUsageRepository, EnergyUsageRepository>();
 builder.Services.AddScoped<ISolarProviderRepository, SolarProviderRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-// Registro de serviços
 builder.Services.AddScoped<IEnergyUsageService, EnergyService>();
 builder.Services.AddScoped<ISolarProviderService, ProviderService>();
 builder.Services.AddScoped<IUserApplicationService, UserService>();
 
-// Adiciona controladores e configurações do Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -44,10 +39,9 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API para gerenciamento de energia sustentável",
     });
 
-    c.EnableAnnotations(); // Habilitar anotações para documentação com Swagger
+    c.EnableAnnotations(); 
 });
 
-// Configuração do pipeline da aplicação
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -65,7 +59,6 @@ else
     app.UseHsts();
 }
 
-// Configuração de roteamento
 app.UseRouting();
 app.UseAuthorization();
 
@@ -83,5 +76,4 @@ app.UseEndpoints(endpoints =>
         defaults: new { controller = "User" });
 });
 
-// Executar a aplicação
 app.Run();

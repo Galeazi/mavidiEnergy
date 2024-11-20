@@ -20,6 +20,6 @@ namespace MAVIDI_ENERGY.Domain.Entities
         public string ContactInfo { get; set; } = string.Empty;
 
         [Range(0, 5, ErrorMessage = "A Avaliação deve estar entre 0 e 5")]
-        public double Rating { get; set; } // Alterado para double
+        public double Rating { get; set; } 
     }
 }

@@ -7,7 +7,6 @@ namespace MAVIDI_ENERGY.Infrastructure.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            // Tabela Users
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -51,8 +50,7 @@ namespace MAVIDI_ENERGY.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 }
             );
-
-            // Tabela SolarProviders
+            
             migrationBuilder.CreateTable(
                 name: "SolarProviders",
                 columns: table => new
@@ -69,8 +67,7 @@ namespace MAVIDI_ENERGY.Infrastructure.Migrations
                     table.PrimaryKey("PK_SolarProviders", x => x.Id);
                 }
             );
-
-            // Índices para Otimização
+            
             migrationBuilder.CreateIndex(
                 name: "IX_EnergyUsages_UserId",
                 table: "EnergyUsages",
@@ -85,7 +82,6 @@ namespace MAVIDI_ENERGY.Infrastructure.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            // Remoção das tabelas em ordem reversa
             migrationBuilder.DropTable(
                 name: "SolarProviders");
 

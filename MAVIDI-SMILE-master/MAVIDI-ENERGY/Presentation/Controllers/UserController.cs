@@ -15,7 +15,6 @@ namespace MAVIDI_ENERGY.Presentation.Controllers
             _userService = userService;
         }
 
-        // GET: /Users
         public IActionResult Index()
         {
             var users = _userService.ObterTodosUsuarios();
@@ -28,14 +27,12 @@ namespace MAVIDI_ENERGY.Presentation.Controllers
 
             return View(viewModel);
         }
-
-        // GET: /Users/Create
+        
         public IActionResult Create()
         {
             return View();
         }
-
-        // POST: /Users/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(UserViewModel model)
@@ -55,8 +52,7 @@ namespace MAVIDI_ENERGY.Presentation.Controllers
 
             return View(model);
         }
-
-        // GET: /Users/Edit/{id}
+        
         public IActionResult Edit(int id)
         {
             var user = _userService.ObterUsuarioPorId(id);
@@ -74,8 +70,7 @@ namespace MAVIDI_ENERGY.Presentation.Controllers
 
             return View(viewModel);
         }
-
-        // POST: /Users/Edit/{id}
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, UserViewModel model)
@@ -95,8 +90,7 @@ namespace MAVIDI_ENERGY.Presentation.Controllers
 
             return View(model);
         }
-
-        // GET: /Users/Delete/{id}
+        
         public IActionResult Delete(int id)
         {
             var user = _userService.ObterUsuarioPorId(id);

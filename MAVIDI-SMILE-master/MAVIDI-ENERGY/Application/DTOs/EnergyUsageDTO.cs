@@ -6,7 +6,7 @@ namespace MAVIDI_ENERGY.Application.DTOs
     public class EnergyUsageDTO
     {
         [Required(ErrorMessage = "O campo UserId é obrigatório")]
-        public int UserId { get; set; } // Adicionado UserId
+        public int UserId { get; set; } 
 
         [Required(ErrorMessage = "O campo Consumo Mensal é obrigatório")]
         [Range(0, double.MaxValue, ErrorMessage = "O Consumo Mensal deve ser um valor positivo")]
